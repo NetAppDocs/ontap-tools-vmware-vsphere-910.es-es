@@ -832,7 +832,6 @@
   <block id="1b837800f24f729eb8e73a102257c0bd" category="admonition">Si utiliza plataformas de almacenamiento de tipo cabina All SAN (ASA) con ONTAP 9.9.1 o posterior, solo podrá crear almacenes de datos vVols con un tamaño de vmdk superior a 16 TB.</block>
   <block id="d78120895b47b61a42063d7f497c4cc0" category="list-text">En la página Home de vSphere Client, haga clic en *hosts and Clusters*.</block>
   <block id="0e6fc56cbe91d72cb03e33a904ae9ab3" category="list-text">En el panel de navegación, seleccione el centro de datos que contiene el almacén de datos.</block>
-  <block id="a15d1bf5dee929fddbf2e03ae0f830e9" category="list-text">Haga clic con el botón derecho en el almacén de datos y seleccione *Herramientas de ONTAP de NetApp* &gt; *asignar QoS*.</block>
   <block id="425e99780c82b74f333dd7da3068f492" category="list-text">En el cuadro de diálogo Cambiar tamaño, especifique un nuevo tamaño para el almacén de datos y, a continuación, haga clic en *Aceptar*.</block>
   <block id="29b33d6a4971ded7e90ffb22fa8e685d" category="paragraph">Puede ejecutar la opción *REDISCOVER ALL* en el menú sistemas de almacenamiento para actualizar manualmente el listado de almacenamiento en Storage Systems y el panel, o esperar la próxima actualización programada.</block>
   <block id="3c8f97d433c6f0d3e1c024ef4b5c528c" category="summary">Si está utilizando la versión más reciente de las herramientas de ONTAP para VMware vSphere, A continuación, debe migrar sus máquinas virtuales que se aprovisionan con las métricas de calidad de servicio “MaxThroughput MBPS” o “MaxThroughput IOPS” a nuevos almacenes de datos VVol que se aprovisionan con las métricas de calidad de servicio “Max IOPS” de la versión más reciente de las herramientas ONTAP.</block>
@@ -1228,7 +1227,6 @@
   <block id="00a510939945fb6eb144a70baf6f9fd4" category="admonition">El intervalo de tiempo de espera especificado es el valor máximo. No es necesario esperar hasta que se llegue al tiempo de espera máximo. La mayoría de comandos terminan dentro del intervalo máximo de tiempo de espera establecido.</block>
   <block id="e8e75924ea6b1743aedaf9cdc60f2811" category="paragraph">También debe configurar el tiempo máximo para que SRA realice una sola operación en el archivo vvol.properties: offtap.operation.timeout.period.seconds=86400.</block>
   <block id="0a757269d3671e08f4647a4a3f39c7af" category="inline-link">Respuesta 1001111 de la base de conocimientos de NetApp: Adaptador de replicación de almacenamiento de NetApp 4.0/7.X para la guía de ajuste de tamaño de ONTAP</block>
-  <block id="61497a3ce40a5b82feed85f8793d337b" category="paragraph"><block ref="61497a3ce40a5b82feed85f8793d337b" category="inline-link-rx"></block></block>
   <block id="b2dacb077897e6e20eab5019528b0b4d" category="paragraph">La documentación de VMware sobre la modificación de la configuración del proveedor DE SAN tiene más información.</block>
   <block id="c106a2cd545fb9665a990784905584ee" category="inline-link">Documentación de VMware Site Recovery Manager: Cambiar la configuración de almacenamiento</block>
   <block id="5ae0fbc5a94ef2dc0c2a09ad3529481f" category="paragraph"><block ref="5ae0fbc5a94ef2dc0c2a09ad3529481f" category="inline-link-rx"></block></block>
@@ -1296,8 +1294,6 @@
   <block id="ce43109be12a788edaee29a0960ca9c7" category="list-text">System Manager 9.8P1 o posterior de ONTAP</block>
   <block id="b36e85751d57920856a667a70fbd44c3" category="paragraph"><block ref="b36e85751d57920856a667a70fbd44c3" category="inline-link-macro-rx"></block></block>
   <block id="3932191a381dc130ecf8b7f97d887769" category="list-text">Herramienta de creación de usuarios de RBAC para ONTAP (si se usa ONTAP 9.6 o una versión anterior)</block>
-  <block id="3c25e2e440e9f31af6d29f0e44415780" category="inline-link">Herramienta RBAC User Creator para VSC, proveedor VASA y Storage Replication Adapter 7.0 para VMware vSphere</block>
-  <block id="6490af081af6fea3ac5350f6812a0057" category="paragraph"><block ref="6490af081af6fea3ac5350f6812a0057" category="inline-link-rx"></block></block>
   <block id="5bc83c5da5e874a1f3cd46def8b7086a" category="paragraph">Cada rol de ONTAP tiene asociado un nombre de usuario y una pareja de contraseñas que constituyen las credenciales del rol. Si no inicia sesión con estas credenciales, no podrá acceder a las operaciones de almacenamiento que están asociadas con el rol.</block>
   <block id="92bedc01b7222f50b165fadee33a0cdd" category="paragraph">Como medida de seguridad, los roles de ONTAP específicos de VSC se ordenan jerárquicamente. Esto significa que la primera función es la más restrictiva y que sólo tiene los privilegios asociados con el conjunto más básico de operaciones de almacenamiento VSC. El siguiente rol incluye sus propios privilegios y todos los privilegios asociados con el rol anterior. Cada puesto adicional resulta menos restrictivo en relación con las operaciones de almacenamiento admitidas.</block>
   <block id="92e1f75474e9be7c3cf34b3eb30f325e" category="paragraph">A continuación, se enumeran algunos de los roles de control de acceso basado en roles de ONTAP recomendados cuando se usa VSC. Después de crear estos roles, es posible asignar los roles a los usuarios que deben realizar tareas relacionadas con el almacenamiento, como el aprovisionamiento de máquinas virtuales.</block>
@@ -1331,7 +1327,6 @@
   <block id="ac9f97a99a048cbef4e6c1dd7488effe" category="paragraph">Para crear un nuevo usuario y conectar un clúster o una SVM a las herramientas de ONTAP, debe realizar lo siguiente:</block>
   <block id="96b45b5c5a5b2f7e3a48deff64fa2da7" category="list-text">Cree un administrador de clúster o un rol de administrador de SVM</block>
   <block id="24712951dbf027dbf6c455a04c052ac4" category="admonition">Es posible usar uno de los siguientes para crear estos roles:</block>
-  <block id="6b2d93598a0b579fbc8c679697788778" category="paragraph"><block ref="6b2d93598a0b579fbc8c679697788778" category="inline-link-rx"></block></block>
   <block id="69e3a1dff1352bb06840dbcbff566e40" category="list-text">Cree usuarios con el rol asignado y el conjunto de aplicaciones adecuado mediante ONTAP</block>
   <block id="a4e90f544f0d8ede6e2023d539fef693" category="paragraph">Es necesario contar con estas credenciales del sistema de almacenamiento para configurar los sistemas de almacenamiento para VSC. Puede configurar sistemas de almacenamiento para VSC introduciendo las credenciales en VSC. Cada vez que inicie sesión en un sistema de almacenamiento con estas credenciales, tendrá permisos sobre las funciones VSC que haya configurado en ONTAP al crear las credenciales.</block>
   <block id="82e8b78ffb3455f0a5df307de255c3dc" category="list-text">Añada el sistema de almacenamiento a VSC y proporcione las credenciales del usuario que acaba de crear</block>
@@ -1944,7 +1939,6 @@
   <block id="4c3c39a603eb21106d2df2836d4b456c" category="sidebar">Base de conocimientos de NetApp - Herramientas de ONTAP</block>
   <block id="bbf1057ad175e1e1664e224351019ac9" category="sidebar">Utilidad de importación de NetApp: Vídeo</block>
   <block id="72393f9ef0b6b69526a30ac7ce5276bc" category="sidebar">Comunidad de NetApp: Herramientas de ONTAP</block>
-  <block id="ed9018b2e8611a3d2c03bb6a205b9715" category="sidebar">Herramientas de ONTAP para VMware vSphere</block>
   <block id="a7c1f19a0afcdde0b988ba73af98d366" category="sidebar">Configure las herramientas de ONTAP</block>
   <block id="d323122d1d04a198d3dd6ef4bae01b87" category="sidebar">Configure los ajustes de ESXi</block>
   <block id="16b28c768a3808adf59f65e0b99fedfe" category="sidebar">Configurar los sistemas operativos invitados</block>
@@ -1983,4 +1977,6 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="389adae702b47ad2c98095885b166665" category="paragraph"><block ref="389adae702b47ad2c98095885b166665" category="inline-link-rx"></block></block>
+  <block id="bdc5a4ba1115f3f724e1f81e7f41eeef" category="list-text">Haga clic con el botón derecho en el almacén de datos y seleccione *Herramientas de NetApp ONTAP* &gt; *Cambiar tamaño de almacén de datos que no sea vVols*.</block>
 </blocks>
